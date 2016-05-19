@@ -107,11 +107,14 @@ SWIFT_CLASS_NAMED("Acl")
 /// The userId of the User used to create the record.
 @property (nonatomic, readonly, copy) NSString * _Nonnull creator;
 
-/// Constructs an Acl instance with the userId of the User used to create the record.
-- (nonnull instancetype)initWithCreator:(NSString * _Nonnull)creator OBJC_DESIGNATED_INITIALIZER;
+/// Specifies the list of user _ids that are explicitly allowed to read the entity.
+@property (nonatomic, readonly, copy) NSArray<NSString *> * _Nullable readers;
+
+/// Specifies the list of user _ids that are explicitly allowed to modify the entity.
+@property (nonatomic, readonly, copy) NSArray<NSString *> * _Nullable writers;
 
 /// Constructor used to build a new Acl instance from a JSON object.
-- (nonnull instancetype)initWithJson:(NSDictionary<NSString *, id> * _Nonnull)json;
+- (nullable instancetype)initWithJson:(NSDictionary<NSString *, id> * _Nonnull)json;
 
 /// The JSON representation for the Acl instance.
 - (NSDictionary<NSString *, id> * _Nonnull)toJson;
@@ -121,6 +124,7 @@ SWIFT_CLASS_NAMED("Acl")
 @class NSURL;
 @class KNVPush;
 @class KNVMigration;
+@class NSData;
 
 
 /// This class provides a representation of a Kinvey environment holding App ID and App Secret. Please never use a Master Secret in a client application.
@@ -172,6 +176,9 @@ SWIFT_CLASS_NAMED("Client")
 /// Set a different type if you need a custom User class. Extends from User allows you to have custom properties in your User instances.
 @property (nonatomic) SWIFT_METATYPE(__KNVUser) _Nonnull userType;
 
+/// Default Value for DataStore tag
++ (NSString * _Nonnull)defaultTag;
+
 /// Default constructor. The initialize method still need to be called after instanciate a new instance.
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 
@@ -181,8 +188,11 @@ SWIFT_CLASS_NAMED("Client")
 /// Constructor that already initialize the client. The initialize method is called automatically.
 - (nonnull instancetype)initWithAppKey:(NSString * _Nonnull)appKey appSecret:(NSString * _Nonnull)appSecret apiHostName:(NSURL * _Nonnull)apiHostName authHostName:(NSURL * _Nonnull)authHostName;
 
+/// Initialize a Client instance with all the needed parameters and requires a boolean to encrypt or not any store created using this client instance.
+- (__KNVClient * _Nonnull)initializeWithAppKey:(NSString * _Nonnull)appKey appSecret:(NSString * _Nonnull)appSecret apiHostName:(NSURL * _Nonnull)apiHostName authHostName:(NSURL * _Nonnull)authHostName encrypted:(BOOL)encrypted schemaVersion:(unsigned long long)schemaVersion migrationHandler:(void (^ _Nullable)(KNVMigration * _Nonnull, unsigned long long))migrationHandler;
+
 /// Initialize a Client instance with all the needed parameters.
-- (__KNVClient * _Nonnull)initializeWithAppKey:(NSString * _Nonnull)appKey appSecret:(NSString * _Nonnull)appSecret apiHostName:(NSURL * _Nonnull)apiHostName authHostName:(NSURL * _Nonnull)authHostName schemaVersion:(unsigned long long)schemaVersion migrationHandler:(void (^ _Nullable)(KNVMigration * _Nonnull, unsigned long long))migrationHandler;
+- (__KNVClient * _Nonnull)initializeWithAppKey:(NSString * _Nonnull)appKey appSecret:(NSString * _Nonnull)appSecret apiHostName:(NSURL * _Nonnull)apiHostName authHostName:(NSURL * _Nonnull)authHostName encryptionKey:(NSData * _Nullable)encryptionKey schemaVersion:(unsigned long long)schemaVersion migrationHandler:(void (^ _Nullable)(KNVMigration * _Nonnull, unsigned long long))migrationHandler;
 
 /// Autorization header used for calls that don't requires a logged User.
 @property (nonatomic, readonly, copy) NSString * _Nullable authorizationHeader;

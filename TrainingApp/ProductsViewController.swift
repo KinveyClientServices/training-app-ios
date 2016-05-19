@@ -100,13 +100,21 @@ class ProductsViewController: UITableViewController {
     @IBAction func tappedPush(sender: AnyObject) {
         
         SVProgressHUD.show()
-        store.sync() { (count, products, error) -> Void in
+        store.sync() { (count, products, errors) -> Void in
             SVProgressHUD.dismiss()
-            if (error != nil) {
-                let alert = UIAlertController(title: "Error", message: "Unable to push", preferredStyle:.Alert)
+            if let errors = errors where errors.count > 0 {
+                var message = "Unable to push"
+                for error in errors {
+                    if let error = error as? Error {
+                        message = error.localizedDescription
+                        break
+                    }
+                }
+                
+                let alert = UIAlertController(title: "Error", message: message, preferredStyle:.Alert)
                 let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
                 alert.addAction(defaultAction)
-                self.tabBarController?.presentViewController(alert, animated:true, completion:nil)
+                self.presentViewController(alert, animated:true, completion:nil)
             }
         }
     }
