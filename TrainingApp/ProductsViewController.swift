@@ -18,7 +18,7 @@ class ProductsViewController: UITableViewController {
     
     
     lazy var store: DataStore<Product>! = {
-        return DataStore<Product>.getInstance(.Sync)
+        return DataStore<Product>.getInstance()
     }()
     
     override func viewDidLoad() {
@@ -26,29 +26,29 @@ class ProductsViewController: UITableViewController {
 
         self.clearsSelectionOnViewWillAppear = false
         self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        self.refreshControl?.addTarget(self, action: #selector(loadDataFromServer), forControlEvents: .ValueChanged)
+        self.refreshControl?.addTarget(self, action: #selector(loadDataByQuery), forControlEvents: .ValueChanged)
         
         if Kinvey.sharedClient.activeUser == nil {
             self.tabBarController!.performSegueWithIdentifier("TabBarToLogin", sender: nil)
         }
         else {
-            loadDataFromServer()
+            loadDataByQuery()
         }
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(loadDataFromServer), name: LoginViewController.didLoginNotificationName, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(loadDataByQuery), name: LoginViewController.didLoginNotificationName, object: nil)
     }
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
         if Kinvey.sharedClient.activeUser != nil && self.refreshControl?.refreshing == false {
-            loadDataFromCache()
+            loadDataByQuery()
         }
     }
     
-    func loadDataFromServer() {
+    func loadDataByQuery(query:Query = Query()) {
         self.refreshControl?.beginRefreshing()
-        store.pull() { (products, error) -> Void in
+        store.find(query) { (products, error) -> Void in
             self.refreshControl?.endRefreshing()
             if let products = products {
                 self.products = products
@@ -60,16 +60,6 @@ class ProductsViewController: UITableViewController {
         }
     }
     
-    func loadDataFromCache(query:Query = Query()) {
-        
-        store.find(query) { (products, error) -> Void in
-            if let products = products {
-                self.products = products
-                self.tableView.reloadData()
-            }
-        }
-    }
-
     override func setEditing(editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
         
@@ -78,12 +68,10 @@ class ProductsViewController: UITableViewController {
     
     //MARK: - IB Actions
     @IBAction func tappedSort(sender: AnyObject) {
-
-        let predicate = NSPredicate(value: true)
         let sortDescriptor = NSSortDescriptor(key: "name", ascending: sordAscending)
-        let query = Query(predicate:predicate, sortDescriptors:[sortDescriptor])
+        let query = Query(sortDescriptors:[sortDescriptor])
 
-        loadDataFromCache(query)
+        loadDataByQuery(query)
         
         sordAscending = !sordAscending
     }
@@ -92,23 +80,6 @@ class ProductsViewController: UITableViewController {
     }
     
     @IBAction func tappedLimit(sender: AnyObject) {
-//        let query = Query()
-//        loadDataFromCache(query)
-
-    }
-    
-    @IBAction func tappedPush(sender: AnyObject) {
-        
-        SVProgressHUD.show()
-        store.sync() { (count, products, error) -> Void in
-            SVProgressHUD.dismiss()
-            if (error != nil) {
-                let alert = UIAlertController(title: "Error", message: "Unable to push", preferredStyle:.Alert)
-                let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
-                alert.addAction(defaultAction)
-                self.tabBarController?.presentViewController(alert, animated:true, completion:nil)
-            }
-        }
     }
     
     // MARK: - Table view data source
