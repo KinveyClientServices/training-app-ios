@@ -30,14 +30,6 @@
 		F23E4EE71CBD5CFA0004F75D /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23E4EE61CBD5CFA0004F75D /* Employee.swift */; };
 		F23E4EE91CBD5D8D0004F75D /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23E4EE81CBD5D8D0004F75D /* Media.swift */; };
 		F23E4EED1CBD5EB10004F75D /* MediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23E4EEC1CBD5EB10004F75D /* MediaViewController.swift */; };
-		F25DAE0E1CAD47DF00E53301 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F25DAE0A1CAD47DF00E53301 /* KeychainAccess.framework */; };
-		F25DAE0F1CAD47DF00E53301 /* KeychainAccess.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = F25DAE0A1CAD47DF00E53301 /* KeychainAccess.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		F25DAE101CAD47DF00E53301 /* Kinvey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F25DAE0B1CAD47DF00E53301 /* Kinvey.framework */; };
-		F25DAE111CAD47DF00E53301 /* Kinvey.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = F25DAE0B1CAD47DF00E53301 /* Kinvey.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		F25DAE121CAD47DF00E53301 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F25DAE0C1CAD47DF00E53301 /* PromiseKit.framework */; };
-		F25DAE131CAD47DF00E53301 /* PromiseKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = F25DAE0C1CAD47DF00E53301 /* PromiseKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		F25DAE141CAD47DF00E53301 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F25DAE0D1CAD47DF00E53301 /* Realm.framework */; };
-		F25DAE151CAD47DF00E53301 /* Realm.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = F25DAE0D1CAD47DF00E53301 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F29DA0761CBD897B00A99224 /* AddMediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29DA0751CBD897B00A99224 /* AddMediaViewController.swift */; };
 		F29DA0781CBE8CF700A99224 /* AddPartnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29DA0771CBE8CF700A99224 /* AddPartnerViewController.swift */; };
 		F29DA07A1CBFF0BF00A99224 /* LogoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29DA0791CBFF0BF00A99224 /* LogoutViewController.swift */; };
@@ -59,22 +51,6 @@
 			remoteInfo = TrainingApp;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		574F62751C6B2C7F00765760 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				F25DAE151CAD47DF00E53301 /* Realm.framework in CopyFiles */,
-				F25DAE131CAD47DF00E53301 /* PromiseKit.framework in CopyFiles */,
-				F25DAE111CAD47DF00E53301 /* Kinvey.framework in CopyFiles */,
-				F25DAE0F1CAD47DF00E53301 /* KeychainAccess.framework in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		218B9F26CB3273C40F49F4FD /* Pods-TrainingApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrainingApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-TrainingApp/Pods-TrainingApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -108,10 +84,6 @@
 		F23E4EE61CBD5CFA0004F75D /* Employee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
 		F23E4EE81CBD5D8D0004F75D /* Media.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
 		F23E4EEC1CBD5EB10004F75D /* MediaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaViewController.swift; sourceTree = "<group>"; };
-		F25DAE0A1CAD47DF00E53301 /* KeychainAccess.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KeychainAccess.framework; sourceTree = "<group>"; };
-		F25DAE0B1CAD47DF00E53301 /* Kinvey.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Kinvey.framework; sourceTree = "<group>"; };
-		F25DAE0C1CAD47DF00E53301 /* PromiseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PromiseKit.framework; sourceTree = "<group>"; };
-		F25DAE0D1CAD47DF00E53301 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		F29DA0751CBD897B00A99224 /* AddMediaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMediaViewController.swift; sourceTree = "<group>"; };
 		F29DA0771CBE8CF700A99224 /* AddPartnerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPartnerViewController.swift; sourceTree = "<group>"; };
 		F29DA0791CBFF0BF00A99224 /* LogoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoutViewController.swift; sourceTree = "<group>"; };
@@ -122,11 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F25DAE101CAD47DF00E53301 /* Kinvey.framework in Frameworks */,
-				F25DAE0E1CAD47DF00E53301 /* KeychainAccess.framework in Frameworks */,
 				EDB7A1859530BD672E0F56D2 /* Pods_TrainingApp.framework in Frameworks */,
-				F25DAE121CAD47DF00E53301 /* PromiseKit.framework in Frameworks */,
-				F25DAE141CAD47DF00E53301 /* Realm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,10 +118,6 @@
 		5701AB811C6916A900D7D9BB = {
 			isa = PBXGroup;
 			children = (
-				F25DAE0A1CAD47DF00E53301 /* KeychainAccess.framework */,
-				F25DAE0B1CAD47DF00E53301 /* Kinvey.framework */,
-				F25DAE0C1CAD47DF00E53301 /* PromiseKit.framework */,
-				F25DAE0D1CAD47DF00E53301 /* Realm.framework */,
 				C68100F91C80500C0060269B /* TrainingApp */,
 				C68100EF1C804F540060269B /* TrainingAppTests */,
 				C68100F41C804F9F0060269B /* TrainingAppUITests */,
@@ -252,7 +216,6 @@
 				5701AB881C6916A900D7D9BB /* Resources */,
 				755FC1A3B7C0836F1DDD3C99 /* Embed Pods Frameworks */,
 				91B3576C6121D4B065E17FBA /* Copy Pods Resources */,
-				574F62751C6B2C7F00765760 /* CopyFiles */,
 			);
 			buildRules = (
 			);

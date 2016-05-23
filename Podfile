@@ -6,6 +6,7 @@ use_frameworks!
 target 'TrainingApp' do
 
 	pod 'SVProgressHUD'
+    pod 'Kinvey'
 
 end
 
