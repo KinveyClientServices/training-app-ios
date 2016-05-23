@@ -35,13 +35,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     }
 
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
-//        KCSPush.sharedPush().application(
-//            application,
-//            didRegisterForRemoteNotificationsWithDeviceToken: deviceToken,
-//            completionBlock: { (success: Bool, error: NSError!) -> Void in
-//                //if there is an error, try again later
-//            }
-//        )
         // Additional registration goes here (if needed)
     }
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {

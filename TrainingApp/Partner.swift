@@ -14,11 +14,6 @@ class Partner: NSObject, Persistable {
     dynamic var objectId: String?
     dynamic var name: String?
     dynamic var company: String?
-//    dynamic var userName: String?
-//    dynamic var email: String?
-//    dynamic var address: String?
-//    dynamic var phone: String?
-//    dynamic var website: String?
 
 
     override init() {
@@ -34,15 +29,11 @@ class Partner: NSObject, Persistable {
     }
     
     static func kinveyPropertyMapping() -> [String : String] {
+        //TODO: LAB: map the entity properties
         return [
             "objectId" : Kinvey.PersistableIdKey,
             "name" : "partnername",
-            "company" : "partnercompany",
-//            "userName" : "username",
-//            "email" : "email",
-//            "address" : "address",
-//            "phone" : "phone",
-//            "website" : "website"
+            "company" : "partnercompany"
         ]
     }
     

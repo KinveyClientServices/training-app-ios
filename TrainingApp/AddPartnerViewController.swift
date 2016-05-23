@@ -33,6 +33,7 @@ class AddPartnerViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "savePartnerSegueId" {
+            //TODO: LAB: Create partner object to be saved
             partner = Partner(name: nameTextField.text!, company: companyTextField.text!)
         }
     }

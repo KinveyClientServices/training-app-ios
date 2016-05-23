@@ -48,12 +48,8 @@ class LoginViewController: UIViewController {
                 
                 //do nothing
                 self.dismissViewControllerAnimated(true, completion: nil)
-            } else {
-                
-                //do something!
             }
         }
-        
     }
 
     
@@ -69,11 +65,5 @@ class LoginViewController: UIViewController {
                 self.dismissViewControllerAnimated(true, completion: nil)
             }
         }
-
-        
-
-        
     }
-   
-
 }

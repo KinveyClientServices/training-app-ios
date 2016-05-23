@@ -62,7 +62,7 @@ class PartnersViewController: UITableViewController {
     @IBAction func findPressed() {
         SVProgressHUD.show()
         //TODO: LAB: Get all Partners
-        store.find { (partners, error) -> Void in
+        store.find() { (partners, error) -> Void in
             SVProgressHUD.dismiss()
             if let partners = partners {
                 self.partners = partners
@@ -146,6 +146,7 @@ class PartnersViewController: UITableViewController {
     @IBAction func savePartner(segue: UIStoryboardSegue) {
         if let addPartnerViewController = segue.sourceViewController as? AddPartnerViewController {
             
+            //TODO: LAB: get partner to be saved
             if let partner = addPartnerViewController.partner {
                 SVProgressHUD.show()
                 
