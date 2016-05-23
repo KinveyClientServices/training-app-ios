@@ -25,16 +25,13 @@ class Partner: NSObject, Persistable {
     }
     
     static func kinveyCollectionName() -> String {
-        return "Partner"
+        //TODO: LAB: specify the Kinvey collection name
+        return ""
     }
     
     static func kinveyPropertyMapping() -> [String : String] {
         //TODO: LAB: map the entity properties
-        return [
-            "objectId" : Kinvey.PersistableIdKey,
-            "name" : "partnername",
-            "company" : "partnercompany"
-        ]
+        return [:]
     }
     
 }
