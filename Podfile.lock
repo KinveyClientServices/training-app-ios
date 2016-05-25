@@ -1,6 +1,6 @@
 PODS:
   - KeychainAccess (2.3.5)
-  - Kinvey (3.0.19):
+  - Kinvey (3.0.20):
     - KeychainAccess (~> 2.3.5)
     - PromiseKit (~> 3.1.1)
     - Realm (~> 0.103.0)
@@ -34,7 +34,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   KeychainAccess: e283c1981a6c5655e1984cd411c6faf16fa165ae
-  Kinvey: afbd7e2197103653b8d1fe294e3e5d9708dd4663
+  Kinvey: 0251ce8bcb987dd2a12f77c57cc84ac9ccb48c89
   OMGHTTPURLRQ: 38316b56d88125c600bcdb16df8329147da2b0ee
   PromiseKit: 4e8127c22a9b29d1b44958ab2ec762ea6115cbfb
   Realm: 9ed57109332e95bdc48a7caedff80b70c51d5ef4

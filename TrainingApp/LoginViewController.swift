@@ -40,9 +40,6 @@ class LoginViewController: UIViewController {
         User.login(username: login, password: password) { user, error in
             SVProgressHUD.dismiss()
             if let _ = user {
-                
-                NSNotificationCenter.defaultCenter().postNotificationName(LoginViewController.didLoginNotificationName, object: self)
-                
                 //TODO: LAB: implement push registration
                 Kinvey.sharedClient.push.registerForPush()
                 
@@ -61,7 +58,6 @@ class LoginViewController: UIViewController {
         User.presentMICViewController(redirectURI: redirectUrl, timeout: 60 * 5, forceUIWebView: false, client: Kinvey.sharedClient) { (user, errorType) in
             if (user != nil) {
                 //logged in successfully
-                NSNotificationCenter.defaultCenter().postNotificationName(LoginViewController.didLoginNotificationName, object: self)
                 self.dismissViewControllerAnimated(true, completion: nil)
             }
         }
