@@ -16,15 +16,14 @@ class PartnersViewController: UITableViewController {
     var partners = [Partner]()
     
     //TODO: LAB: create sync data store
-    lazy var store: DataStore<Partner>! = {
-        return DataStore<Partner>.getInstance(.Sync)
-    }()
+    var store: DataStore<Partner>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.clearsSelectionOnViewWillAppear = false
         self.navigationItem.rightBarButtonItem = self.editButtonItem()
         self.refreshControl?.addTarget(self, action: #selector(pullData), forControlEvents: .ValueChanged)
+        store = DataStore<Partner>.getInstance(.Sync)
 
         pullData()
     }

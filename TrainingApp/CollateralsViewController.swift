@@ -15,15 +15,15 @@ class CollateralsViewController: UITableViewController {
     
     var files = [File]()
     
-    lazy var fileStore: FileStore! = {
-        return FileStore.getInstance()
-    }()
+    var fileStore: FileStore!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.clearsSelectionOnViewWillAppear = true
         self.refreshControl?.addTarget(self, action: #selector(loadDataFromServer), forControlEvents: .ValueChanged)
+        fileStore = FileStore.getInstance()
+        
         loadDataFromServer()
     }
     

@@ -14,9 +14,7 @@ class MediaViewController: UITableViewController {
 
     var medias = [Media]()
     
-    lazy var store: DataStore<Media>! = {
-        return DataStore<Media>.getInstance(.Network)
-    }()
+    var store: DataStore<Media>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +22,7 @@ class MediaViewController: UITableViewController {
         self.clearsSelectionOnViewWillAppear = false
         self.navigationItem.rightBarButtonItem = self.editButtonItem()
         self.refreshControl?.addTarget(self, action: #selector(loadData), forControlEvents: .ValueChanged)
+        store = DataStore<Media>.getInstance(.Network)
         
         loadData()
     }

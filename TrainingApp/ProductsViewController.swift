@@ -11,15 +11,13 @@ import Kinvey
 import SVProgressHUD
 
 class ProductsViewController: UITableViewController {
-
     
     var products = [Product]()
     var sordAscending = false
     
     
-    lazy var store: DataStore<Product>! = {
-        return DataStore<Product>.getInstance()
-    }()
+    //TODO: LAB: declare a data store variable
+    var store: DataStore<Product>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +30,8 @@ class ProductsViewController: UITableViewController {
             self.tabBarController!.performSegueWithIdentifier("TabBarToLogin", sender: nil)
         }
         else {
+            //TODO: LAB: get instance of data store
+            store = DataStore<Product>.getInstance()
             loadDataByQuery()
         }
         

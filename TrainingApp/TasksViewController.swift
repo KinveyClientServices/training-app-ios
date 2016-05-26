@@ -14,10 +14,7 @@ class TasksViewController: UITableViewController {
     
     var tasks = [Task]()
     
-    //TODO: LAB: create sync data store
-    lazy var store: DataStore<Task>! = {
-        return DataStore<Task>.getInstance(.Sync)
-    }()
+    var store: DataStore<Task>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +22,7 @@ class TasksViewController: UITableViewController {
         self.clearsSelectionOnViewWillAppear = false
         self.navigationItem.rightBarButtonItem = self.editButtonItem()
         self.refreshControl?.addTarget(self, action: #selector(loadDataFromServer), forControlEvents: .ValueChanged)
+        store = DataStore<Task>.getInstance(.Sync);
         
         loadDataFromServer()
     }
