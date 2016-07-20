@@ -32,7 +32,7 @@ class AddMediaViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "saveMediaSegueId" {
-            media = Media(name: nameTextField.text!)
+            media = Media(JSONString: nameTextField.text!)
         }
     }
  

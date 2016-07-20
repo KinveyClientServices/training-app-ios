@@ -22,7 +22,7 @@ class TasksViewController: UITableViewController {
         self.clearsSelectionOnViewWillAppear = false
         self.navigationItem.rightBarButtonItem = self.editButtonItem()
         self.refreshControl?.addTarget(self, action: #selector(loadDataFromServer), forControlEvents: .ValueChanged)
-        store = DataStore<Task>.getInstance(.Sync);
+        store = DataStore<Task>.collection(.Sync);
         
         loadDataFromServer()
     }
@@ -122,11 +122,11 @@ class TasksViewController: UITableViewController {
                 let product = tasks[indexPath.row]
                 tasks.removeAtIndex(indexPath.row)
                 
-                if let _ = product.objectId {
+                if let _ = product.entityId {
                     
                     SVProgressHUD.show()
                     //TODO: LAB: delete Todos
-                    store.removeById(product.objectId!, completionHandler: { (count, error) -> Void in
+                    store.removeById(product.entityId!, completionHandler: { (count, error) -> Void in
                         
                         SVProgressHUD.dismiss()
                         

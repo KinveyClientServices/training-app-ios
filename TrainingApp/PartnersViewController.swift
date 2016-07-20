@@ -23,7 +23,7 @@ class PartnersViewController: UITableViewController {
         self.clearsSelectionOnViewWillAppear = false
         self.navigationItem.rightBarButtonItem = self.editButtonItem()
         self.refreshControl?.addTarget(self, action: #selector(pullData), forControlEvents: .ValueChanged)
-        store = DataStore<Partner>.getInstance(.Sync)
+        store = DataStore<Partner>.collection(.Sync)
 
         pullData()
     }

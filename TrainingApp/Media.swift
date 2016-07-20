@@ -9,27 +9,25 @@
 import Foundation
 import Kinvey
 
-class Media: NSObject, Persistable {
-    
-    dynamic var objectId: String?
+class Media: Entity {
     dynamic var name: String?
     
-    override init() {
+    class func build(name: String? = nil) -> Media {
+        let media = Media()
+        if let name = name {
+            media.name = name
+        }
+        return media
     }
     
-    init(name: String) {
-        self.name = name
-    }
-    
-    static func kinveyCollectionName() -> String {
+    override class func collectionName() -> String {
         return "Media"
     }
     
-    static func kinveyPropertyMapping() -> [String : String] {
-        return [
-            "objectId" : Kinvey.PersistableIdKey,
-            "name" : "name"
-        ]
+    override func propertyMapping(map: Map) {
+        super.propertyMapping(map)
+        
+        name <- ("name", map["name"])
     }
     
 }

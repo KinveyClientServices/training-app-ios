@@ -17,7 +17,9 @@ class ProductsViewController: UITableViewController {
     
     
     //TODO: LAB: declare a data store variable
-    var store: DataStore<Product>!
+    lazy var store: DataStore<Product> = {
+        return DataStore<Product>.collection()
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +33,6 @@ class ProductsViewController: UITableViewController {
         }
         else {
             //TODO: LAB: get instance of data store
-            store = DataStore<Product>.getInstance()
             loadDataByQuery()
         }
         
@@ -121,10 +122,10 @@ class ProductsViewController: UITableViewController {
                 let product = products[indexPath.row]
                 products.removeAtIndex(indexPath.row)
                 
-                if let _ = product.objectId {
+                if let _ = product.entityId {
                     
                     SVProgressHUD.show()
-                    store.removeById(product.objectId!, completionHandler: { (count, error) -> Void in
+                    store.removeById(product.entityId!, completionHandler: { (count, error) -> Void in
                         
                         SVProgressHUD.dismiss()
                         

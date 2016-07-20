@@ -22,7 +22,7 @@ class MediaViewController: UITableViewController {
         self.clearsSelectionOnViewWillAppear = false
         self.navigationItem.rightBarButtonItem = self.editButtonItem()
         self.refreshControl?.addTarget(self, action: #selector(loadData), forControlEvents: .ValueChanged)
-        store = DataStore<Media>.getInstance(.Network)
+        store = DataStore<Media>.collection(.Network)
         
         loadData()
     }
@@ -86,10 +86,10 @@ class MediaViewController: UITableViewController {
                 let media = medias[indexPath.row]
                 medias.removeAtIndex(indexPath.row)
                 
-                if let _ = media.objectId {
+                if let _ = media.entityId {
                     
                     SVProgressHUD.show()
-                    store.removeById(media.objectId!, completionHandler: { (count, error) -> Void in
+                    store.removeById(media.entityId!, completionHandler: { (count, error) -> Void in
                         
                         SVProgressHUD.dismiss()
                         

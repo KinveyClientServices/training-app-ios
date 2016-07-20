@@ -15,6 +15,12 @@ _Note: This starter app uses a developer preview of the Kinvey iOS 3.0 Library. 
 * Kinvey iOS library 3.0.0 (bundled in as a developer preview)
 * [Kinvey](https://console.kinvey.com) app ID and secret. Before compiling, replace `appKey` and `appSecret` in the `AppDelegate` with values you obtain from the console.
 
+### Getting started
+* pod install
+* pod repo update (in case you don't have the Kinvey pod repo)
+### Update the Kinvey SDK
+* pod update Kinvey 
+
 ### Data Model
 * Partner
   * partnername

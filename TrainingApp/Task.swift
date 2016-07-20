@@ -9,28 +9,31 @@
 import Foundation
 import Kinvey
 
-class Task: NSObject, Persistable {
-    
-    dynamic var objectId: String?
+class Task: Entity {
     dynamic var action: String?
-    dynamic var dueDate: String?
-    dynamic var completed: Bool
+    dynamic var dueDate: String = "2016-07-19T12:33:09.124Z"
+    dynamic var completed: Bool = false
 
-    override init() {
-        completed = false
+    class func build(action: String? = nil, dueDate: String, completed: Bool) -> Task {
+        let task = Task()
+        if let action = action {
+            task.action = action
+        }
+        task.dueDate = dueDate
+        task.completed = completed
+        return task
     }
     
-    static func kinveyCollectionName() -> String {
+    override class func collectionName() -> String {
         return "Todo"   
     }
     
-    static func kinveyPropertyMapping() -> [String : String] {
-        return [
-            "objectId"  : Kinvey.PersistableIdKey,
-            "action"    : "action",
-            "dueDate"   : "duedate",
-            "completed" : "completed",
-        ]
+    override func propertyMapping(map: Map) {
+        super.propertyMapping(map)
+        
+        action <- ("action", map["action"])
+        dueDate <- ("dueDate", map["dueDate"])
+        completed <- ("completed", map["completed"])
     }
     
 }

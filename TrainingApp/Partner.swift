@@ -9,32 +9,31 @@
 import Foundation
 import Kinvey
 
-class Partner: NSObject, Persistable {
-    
-    dynamic var objectId: String?
+class Partner: Entity {
     dynamic var name: String?
     dynamic var company: String?
-
-
-    override init() {
-    }
     
-    init(name: String, company: String) {
-        self.name = name
-        self.company = company
+    class func build(name: String? = nil, company: String? = nil) -> Partner {
+        let partner = Partner()
+        if let name = name {
+            partner.name = name
+        }
+        if let company = company {
+            partner.company = company
+        }
+        return partner
     }
-    
-    static func kinveyCollectionName() -> String {
+
+    override class func collectionName() -> String {
         return "Partner"
     }
     
-    static func kinveyPropertyMapping() -> [String : String] {
+    override func propertyMapping(map: Map) {
+        super.propertyMapping(map)
+
         //TODO: LAB: map the entity properties
-        return [
-            "objectId" : Kinvey.PersistableIdKey,
-            "name" : "partnername",
-            "company" : "partnercompany"
-        ]
+        name <- ("name", map["partnername"])
+        company <- ("company", map["partnercompany"])
     }
     
 }

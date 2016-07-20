@@ -20,7 +20,7 @@ class AddTaskViewController: UIViewController {
     
     //TODO: LAB: create sync data store
     lazy var store: DataStore<Task>! = {
-        return DataStore<Task>.getInstance(.Sync)
+        return DataStore<Task>.collection(.Sync)
     }()
     
     override func viewDidLoad() {
@@ -55,10 +55,8 @@ class AddTaskViewController: UIViewController {
     
     @IBAction func tappedSave(sender: AnyObject) {
         
-        let task = Task()
-        task.action = actionField.text
-        task.completed = completedSwitch.on
-        task.dueDate = "2016-02-25T12:33:09.124Z"
+        let task = Task.build(actionField.text, dueDate: dueDatePicker.date.description, completed: completedSwitch.on)
+//        task.duedate = "2016-07-19T12:33:09.124Z"
         //TODO: LAB: Create a Todo
         store.save(task) { (task, error) -> Void in
             self.dismissViewControllerAnimated(true, completion: nil)

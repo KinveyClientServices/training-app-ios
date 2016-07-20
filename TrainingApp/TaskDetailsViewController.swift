@@ -15,7 +15,7 @@ class TaskDetailsViewController: UIViewController {
     
     //TODO: LAB: create sync data store
     lazy var store: DataStore<Task>! = {
-        return DataStore<Task>.getInstance(.Sync)
+        return DataStore<Task>.collection(.Sync)
     }()
     
     @IBOutlet weak var taskActionField: UITextField!
