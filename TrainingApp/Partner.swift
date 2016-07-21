@@ -32,8 +32,8 @@ class Partner: Entity {
         super.propertyMapping(map)
 
         //TODO: LAB: map the entity properties
-        name <- ("name", map["partnername"])
-        company <- ("company", map["partnercompany"])
+        name <- ("partnername", map["partnername"])
+        company <- ("partnercompany", map["partnercompany"])
     }
     
 }

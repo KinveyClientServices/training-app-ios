@@ -28,8 +28,8 @@ class Product: Entity {
     override func propertyMapping(map: Map) {
         super.propertyMapping(map)
         
-        name <- ("name", map["productname"])
-        productDescription <- ("productDescription", map["productdesc"])
+        name <- ("productname", map["productname"])
+        productDescription <- ("productdesc", map["productdesc"])
     }
     
 }
