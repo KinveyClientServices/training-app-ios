@@ -128,10 +128,10 @@ class PartnersViewController: UITableViewController {
 
         // Configure the cell...
         if indexPath.row < partners.count {
-            let product = partners[indexPath.row]
+            let partner = partners[indexPath.row]
             
-            cell.textLabel?.text = product.name
-            cell.detailTextLabel?.text = product.company
+            cell.textLabel?.text = partner.name
+            cell.detailTextLabel?.text = partner.company
         }
 
         return cell
