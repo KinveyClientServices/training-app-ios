@@ -49,6 +49,8 @@ class LoginViewController: UIViewController {
 
     
     @IBAction func tappedLoginWithMIC(sender: UIButton) {
+        KCSUser.setMICApiVersion("v2")
+
         //TODO: LAB: implement MIC login
 //            if (user != nil) {
 //                //logged in successfully
