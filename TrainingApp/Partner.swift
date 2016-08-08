@@ -15,25 +15,16 @@ class Partner: Entity {
     
     class func build(name: String? = nil, company: String? = nil) -> Partner {
         let partner = Partner()
-        if let name = name {
-            partner.name = name
-        }
-        if let company = company {
-            partner.company = company
-        }
+        //TODO: LAB: define the constructor
         return partner
     }
 
     override class func collectionName() -> String {
-        return "Partner"
+        //TODO: LAB: specify the collection name
     }
     
     override func propertyMapping(map: Map) {
-        super.propertyMapping(map)
-
         //TODO: LAB: map the entity properties
-        name <- ("partnername", map["partnername"])
-        company <- ("partnercompany", map["partnercompany"])
     }
     
 }
