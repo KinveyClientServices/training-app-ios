@@ -53,6 +53,7 @@ class LoginViewController: UIViewController {
     @IBAction func tappedLoginWithMIC(sender: UIButton) {
 
         let redirectUrl: NSURL = NSURL( string:"training://")!
+        KCSUser.setMICApiVersion("v2")
 
         //TODO: LAB: implement MIC login
         User.presentMICViewController(redirectURI: redirectUrl, timeout: 60 * 5, forceUIWebView: false, client: Kinvey.sharedClient) { (user, errorType) in
