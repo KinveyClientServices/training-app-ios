@@ -12,14 +12,18 @@ import Kinvey
 class Partner: Entity {
     dynamic var name: String?
     dynamic var company: String?
+    dynamic var email: String?
     
-    class func build(name: String? = nil, company: String? = nil) -> Partner {
+    class func build(name: String? = nil, company: String? = nil, email: String? = nil) -> Partner {
         let partner = Partner()
         if let name = name {
             partner.name = name
         }
         if let company = company {
             partner.company = company
+        }
+        if let email = email {
+            partner.email = email
         }
         return partner
     }
@@ -34,6 +38,7 @@ class Partner: Entity {
         //TODO: LAB: map the entity properties
         name <- ("partnername", map["partnername"])
         company <- ("partnercompany", map["partnercompany"])
+        email <- ("email", map["email"])
     }
     
 }

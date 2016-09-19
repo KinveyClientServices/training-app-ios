@@ -38,6 +38,8 @@ class PartnersViewController: UITableViewController {
     func pullData() {
         self.refreshControl?.beginRefreshing()
         //TODO: LAB: Pull data from Kinvey
+        //let predicate = NSPredicate(format: "email beginswith %@", "t")
+        //let query = Query(predicate: predicate)
         store.pull() { (partners, error) -> Void in
             self.refreshControl?.endRefreshing()
             if (error != nil) {
