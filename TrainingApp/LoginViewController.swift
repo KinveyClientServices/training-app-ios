@@ -56,7 +56,8 @@ class LoginViewController: UIViewController {
         KCSUser.setMICApiVersion("v2")
 
         //TODO: LAB: implement MIC login
-        User.presentMICViewController(redirectURI: redirectUrl, timeout: 60 * 5, forceUIWebView: false, client: Kinvey.sharedClient) { (user, errorType) in
+        User.presentMICViewController(redirectURI: redirectUrl, timeout: NSTimeInterval(60), micUserInterface: MICUserInterface.Safari, currentViewController: self, client: Kinvey.sharedClient){ (user: User?, error: ErrorType?) -> Void in
+//        User.presentMICViewController(redirectURI: redirectUrl, timeout: 60 * 5, forceUIWebView: false, client: Kinvey.sharedClient) { (user, errorType) in
             if (user != nil) {
                 //logged in successfully
                 self.dismissViewControllerAnimated(true, completion: nil)
