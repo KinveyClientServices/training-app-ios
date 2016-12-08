@@ -22,7 +22,7 @@ class CollateralsViewController: UITableViewController {
         
         self.clearsSelectionOnViewWillAppear = true
         self.refreshControl?.addTarget(self, action: #selector(loadDataFromServer), forControlEvents: .ValueChanged)
-        fileStore = FileStore.getInstance()
+        //TODO: LAB: create the file store
         
         loadDataFromServer()
     }
@@ -34,19 +34,15 @@ class CollateralsViewController: UITableViewController {
     func loadDataFromServer() {
         self.refreshControl?.beginRefreshing()
         //TODO: LAB: Get files from Kinvey
-        //crash when quering pdf files (mimeType is nil )
-        //let query = Query(format: "mimeType == %@", "application/pdf")
-        let query = Query()
-        fileStore.find(query, ttl: nil, completionHandler: { (files, error) -> Void in
-            self.refreshControl?.endRefreshing()
-            if let files = files {
-                self.files = files
-                if self.refreshControl?.refreshing ?? false {
-                    self.refreshControl?.endRefreshing()
-                }
-                self.tableView.reloadData()
-            }
-        })
+//            self.refreshControl?.endRefreshing()
+//            if let files = files {
+//                self.files = files
+//                if self.refreshControl?.refreshing ?? false {
+//                    self.refreshControl?.endRefreshing()
+//                }
+//                self.tableView.reloadData()
+//            }
+//        })
       }
     
 
